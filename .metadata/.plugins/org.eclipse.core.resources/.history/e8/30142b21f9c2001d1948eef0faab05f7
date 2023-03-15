@@ -1,0 +1,13 @@
+package com.anil.spring.boot.api.service;
+
+import com.anil.spring.boot.api.model.Department;
+
+public class DepartmentServiceImpl implements DepartmentService{
+
+	@Override
+	public Department saveDepartment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

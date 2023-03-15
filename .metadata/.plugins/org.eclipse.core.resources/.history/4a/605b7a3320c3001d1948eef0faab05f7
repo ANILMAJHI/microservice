@@ -1,0 +1,81 @@
+package com.anil.spring.boot.api.model;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Table
+@Entity
+public class Department {
+
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	@Column
+	private String name;
+	@Column
+	private int capacity;
+
+	@OneToMany(targetEntity = Student.class, mappedBy = "department", cascade = CascadeType.ALL)
+	@JoinColumn(name = "dep_std_fk", referencedColumnName = "id")
+	private Set<Student> students;
+
+	public Department() {
+		super();
+	}
+
+	public Department(int id, String name, int capacity, Set<Student> students) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.capacity = capacity;
+		this.students = students;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
+	}
+
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + ", capacity=" + capacity + ", students=" + students + "]";
+	}
+
+}

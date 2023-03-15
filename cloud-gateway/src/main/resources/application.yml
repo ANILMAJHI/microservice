@@ -1,0 +1,43 @@
+server:
+  port: 9191
+  
+spring:
+  application:
+    name: API-GATEWAY
+    #USERDETAILS-SERVICE:9900
+  cloud:
+    gateway:
+      routes:
+      - id: USERDETAILS-SERVICE
+        #uri: lb://localhost:9900
+        uri: lb://USERDETAILS-SERVICE
+        predicates:
+        - Path=/application/**
+        
+      - id: DEPARTMENTDETAILS-SERVICE
+        #uri: lb://localhost:9901
+        uri: lb://DEPARTMENTDETAILS-SERVICE
+        predicates:
+        - Path=/api/**
+        
+      - id: CIRCUIT-BREAKER-APPLICATION
+        uri: lb://CIRCUIT-BREAKER-APPLICATION
+        predicates:
+        - Path=/mapping/**
+          
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"
+

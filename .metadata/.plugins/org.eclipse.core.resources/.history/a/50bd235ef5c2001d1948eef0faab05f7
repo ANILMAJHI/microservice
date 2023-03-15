@@ -1,0 +1,15 @@
+package com.anil.spring.boot.api;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class DepartmentDetailsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DepartmentDetailsApplication.class, args);
+		// System.out.println("this is the departments details application...");
+
+	}
+
+}

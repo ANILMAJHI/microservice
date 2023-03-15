@@ -1,0 +1,5 @@
+package com.anil.spring.boot.api.service;
+
+public class DepartmentServiceImpl {
+
+}

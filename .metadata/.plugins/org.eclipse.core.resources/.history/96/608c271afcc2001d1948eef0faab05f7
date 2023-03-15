@@ -1,0 +1,20 @@
+package com.anil.spring.boot.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.anil.spring.boot.api.dao.DepartmentRepository;
+import com.anil.spring.boot.api.model.Department;
+
+public class DepartmentServiceImpl implements DepartmentService {
+
+	@Autowired
+	private DepartmentRepository repository;
+
+	@Override
+	public List<Department> saveDepartment(Department department) {
+		// TODO Auto-generated method stub
+		
+		return repository.save(department);
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.anil.spring.boot.api.service;
+
+import java.util.List;
+
+import com.anil.spring.boot.api.model.Department;
+
+public interface DepartmentService {
+
+	public void saveDepartment(Department department);
+}

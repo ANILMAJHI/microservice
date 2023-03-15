@@ -1,0 +1,50 @@
+package com.anil.spring.boot.api.model;
+
+import java.util.Set;
+
+public class Department {
+
+	private int id;
+	private String name;
+	private int capacity;
+
+	private Set<Student> students;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
+	}
+
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + ", capacity=" + capacity + ", students=" + students + "]";
+	}
+
+}

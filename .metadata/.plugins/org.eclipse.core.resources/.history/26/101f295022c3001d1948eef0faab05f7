@@ -1,0 +1,22 @@
+package com.anil.spring.boot.api.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.anil.spring.boot.api.dao.DepartmentRepository;
+import com.anil.spring.boot.api.model.Department;
+
+//public class DepartmentServiceImpl implements DepartmentService {
+
+@Service
+public class DepartmentServiceImpl {
+	@Autowired
+	DepartmentRepository repository;
+
+	public Department saveDepartment(Department department) {
+		// TODO Auto-generated method stub
+
+		return repository.save(department);
+	}
+
+}

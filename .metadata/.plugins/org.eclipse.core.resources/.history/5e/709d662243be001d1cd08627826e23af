@@ -1,0 +1,5 @@
+package com.config.boot.profileBean;
+
+public class ConnectionManager {
+
+}

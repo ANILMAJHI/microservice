@@ -1,0 +1,8 @@
+127.0.0.1 - - [28/Sep/2022:10:52:54 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [28/Sep/2022:10:52:56 +0530] "GET /jerseybootstrapping/ HTTP/1.1" 404 776
+0:0:0:0:0:0:0:1 - - [28/Sep/2022:10:55:30 +0530] "GET /jerseybootstrapping/api/stock?stockName=Ram HTTP/1.1" 404 789
+127.0.0.1 - - [28/Sep/2022:10:59:58 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [28/Sep/2022:10:59:58 +0530] "GET /jerseybootstrapping/ HTTP/1.1" 404 776
+0:0:0:0:0:0:0:1 - - [28/Sep/2022:11:00:05 +0530] "GET /jerseybootstrapping/api/stock?stockName=Ram HTTP/1.1" 404 789
+0:0:0:0:0:0:0:1 - - [28/Sep/2022:11:00:07 +0530] "GET /jerseybootstrapping/api/stock?stockName=Ram HTTP/1.1" 404 789
+0:0:0:0:0:0:0:1 - - [28/Sep/2022:11:01:46 +0530] "GET /jerseybootstrapping/api/stock?stockName=Ram HTTP/1.1" 404 789

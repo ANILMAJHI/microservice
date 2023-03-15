@@ -1,0 +1,35 @@
+server:
+  port: 9901
+  
+spring:
+  application:
+    name: DEPARTMENTDETAILS-SERVICE
+    
+  datasource:
+    driver-class-name: "Oracle.jdbc.OracleDriver" 
+    url: "jdbc:oracle:thin:@localhost:1521:orcl11"
+    username: system
+    password: pinku
+    
+  jpa:
+    database: ORACLE
+    default_schema: PINKU
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.anil.spring.boot.api.beans&apos; to &apos;com.anil.spring.boot.api.model&apos;&#x0D;&#x0A;- Original project: &apos;departmentDetails&apos;&#x0D;&#x0A;- Original element: &apos;departmentDetails/src/main/java/com.anil.spring.boot.api.beans&apos;&#x0D;&#x0A;- Renamed element: &apos;departmentDetails/src/main/java/com.anil.spring.boot.api.model&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.anil.spring.boot.api.beans&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.anil.spring.boot.api.beans" name="com.anil.spring.boot.api.model" qualified="false" references="true" stamp="1678854621210" textual="false" version="1.0"/>
+</session>
