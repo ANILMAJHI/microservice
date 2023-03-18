@@ -1,0 +1,26 @@
+departmentDetails
+-----------------
+url:- http://localhost:9901/api/saveDept
+
+request:-
+---------
+{
+	"id": 19,
+	"name": "Department of Commerce",
+	"capacity": 30,
+	"students": [{
+			"id": 10,
+			"name": "Surkant",
+			"gendar": "Male",
+			"age": 46,
+			"subjects": ["Accountancy", "Business Studies"]
+		},
+		{
+			"id": 10,
+			"name": "Monalisa",
+			"gendar": "Female",
+			"age": 211,
+			"subjects": ["Economics", "Mathematics/ Informatics", "English"]
+		}
+	]
+}

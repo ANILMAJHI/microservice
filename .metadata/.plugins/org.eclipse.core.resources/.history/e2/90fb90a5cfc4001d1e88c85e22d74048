@@ -1,0 +1,13 @@
+package com.anil.spring.boot.api.exception;
+
+public class NotFoundException extends Exception {
+
+	public NotFoundException() {
+
+	}
+
+	public NotFoundException(String s) {
+		super(s);
+	}
+
+}

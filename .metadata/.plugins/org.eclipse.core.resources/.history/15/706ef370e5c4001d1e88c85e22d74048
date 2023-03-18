@@ -1,0 +1,29 @@
+package com.anil.spring.boot.api.exception;
+
+public class NotFoundException extends RuntimeException {
+	
+
+	String errorMessage;
+	
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		this.errorMessage = errorMessage;
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public NotFoundException() {
+		super();
+	}
+
+	public NotFoundException(final String message) {
+		super(message);
+	}
+
+}

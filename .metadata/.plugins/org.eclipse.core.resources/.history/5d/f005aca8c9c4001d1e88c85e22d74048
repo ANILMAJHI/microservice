@@ -1,0 +1,36 @@
+package com.anil.spring.boot.api.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.anil.spring.boot.api.dao.DepartmentRepository;
+import com.anil.spring.boot.api.dao.StudentRepository;
+import com.anil.spring.boot.api.model.Department;
+
+//public class DepartmentServiceImpl implements DepartmentService {
+
+@Service
+public class DepartmentServiceImpl {
+	@Autowired
+	DepartmentRepository departmentRepository;
+
+	StudentRepository studentRepository;
+
+	public Department saveDepartment(Department department) {
+		// TODO Auto-generated method stub
+
+		return departmentRepository.save(department);
+	}
+
+	public List<Department> findAll() {
+		List<Department> dept = departmentRepository.findAll();
+		return dept;
+	}
+
+	/*
+	 * public List<Department> getDepartmentsByStudentSubject(String[] subjects) {
+	 * return departmentRepository.findByStudentSubject(subjects); }
+	 */
+}

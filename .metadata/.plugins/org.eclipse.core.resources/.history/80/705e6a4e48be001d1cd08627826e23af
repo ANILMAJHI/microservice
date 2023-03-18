@@ -1,4 +1,0 @@
-driver-classname: oracle.jdbc.OracleDriver
-url: jdbc:oracle:thin:@localhost:1521:orcl11
-username: system
-password: pinku

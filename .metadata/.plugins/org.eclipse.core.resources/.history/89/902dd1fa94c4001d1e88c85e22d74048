@@ -1,0 +1,110 @@
+package com.anil.spring.boot.api.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@Table
+@Entity
+public class Student implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	// @JsonIgnore
+	private int id;
+	@Column
+	// @JsonIgnore
+	private String name;
+	@Column
+	// @JsonIgnore
+	private String gendar;
+	@Column
+	// @JsonIgnore
+	private int age;
+	@Column(name = "subjects_json")
+	//@Column(name = "subjects_json")
+	//@Column(name = "subjects_json", columnDefinition = "CLOB")
+	private String[] subjects;
+
+	/*
+	 * public String getSubjectsJson() throws JsonProcessingException { ObjectMapper
+	 * mapper = new ObjectMapper(); return mapper.writeValueAsString(subjects); }
+	 * 
+	 * public void setSubjectsJson(String subjectsJson) throws
+	 * JsonProcessingException { ObjectMapper mapper = new ObjectMapper();
+	 * this.subjects = mapper.readValue(subjectsJson, String[].class); }
+	 */
+	public Student() {
+		super();
+	}
+
+	public Student(int id, String name, String gendar, int age, String[] subjects) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gendar = gendar;
+		this.age = age;
+		this.subjects = subjects;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGendar() {
+		return gendar;
+	}
+
+	public void setGendar(String gendar) {
+		this.gendar = gendar;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String[] getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(String[] subjects) {
+		this.subjects = subjects;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", gendar=" + gendar + ", age=" + age + ", subjects="
+				+ subjects.toString() + "]";
+	}
+
+}

@@ -1,0 +1,89 @@
+package com.anil.spring.boot.api.model;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Table
+@Entity
+public class Department implements Serializable {
+
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@JsonIgnore
+	private int id;
+	@Column
+	//@JsonIgnore
+	private String name;
+	@Column
+	//@JsonIgnore
+	private int capacity;
+
+	// @OneToMany(targetEntity = Student.class, mappedBy = "department", fetch =
+	// FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "dep_std_fk", referencedColumnName = "id")
+	private List<Student> students;
+
+	public Department() {
+		super();
+	}
+
+	public Department(int id, String name, int capacity, List<Student> students) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.capacity = capacity;
+		this.students = students;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
+	@Override
+	public String toString() {
+		return "Department [id=" + id + ", name=" + name + ", capacity=" + capacity + ", students=" + students + "]";
+	}
+
+}

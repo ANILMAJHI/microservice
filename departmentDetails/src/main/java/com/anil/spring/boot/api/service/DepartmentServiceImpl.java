@@ -1,5 +1,8 @@
 package com.anil.spring.boot.api.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,4 +25,25 @@ public class DepartmentServiceImpl {
 		return departmentRepository.save(department);
 	}
 
+	public List<Department> findAll() {
+		List<Department> dept = departmentRepository.findAll();
+		return dept;
+	}
+
+	public Optional<Department> getById(int id)
+	{
+		return departmentRepository.findById(id);
+	}
+	
+	public void deleteDepartment(int id)
+	{
+		
+		departmentRepository.deleteById(id);
+		//return departmentRepository.deleteById(id);;
+	}
+	
+	/*
+	 * public List<Department> getDepartmentsByStudentSubject(String[] subjects) {
+	 * return departmentRepository.findByStudentSubject(subjects); }
+	 */
 }

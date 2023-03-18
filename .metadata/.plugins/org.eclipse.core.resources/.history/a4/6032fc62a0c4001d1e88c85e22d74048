@@ -1,0 +1,39 @@
+server:
+  port: 9901
+  
+spring:
+  application:
+    name: DEPARTMENTDETAILS-SERVICE
+    
+  datasource:
+    #url: jdbc:oracle:thin:@host.docker.internal:1521:orcl11
+    #url: jdbc:oracle:thin:@mysql-docker:1521:orcl11
+    url: jdbc:oracle:thin:@localhost:1521:orcl11
+    password: pinku
+    username: system
+    driver-class-name: "oracle.jdbc.OracleDriver"
+    
+  jpa:
+    database: ORACLE
+    default_schema: PINKU
+    #spring.jpa.hibernate.generate_ddl: true
+    #spring.jpa.hibernate.ddl-auto: create
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+      
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "*"

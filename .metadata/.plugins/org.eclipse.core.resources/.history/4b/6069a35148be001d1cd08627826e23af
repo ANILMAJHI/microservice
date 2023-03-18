@@ -1,8 +1,0 @@
-server:
-  port: 8001
-  
-driver-classname: oracle.jdbc.OracleDriver
-url: jdbc:oracle:thin:@localhost:1521:test
-username: system
-password: system
-

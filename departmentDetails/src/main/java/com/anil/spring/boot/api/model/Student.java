@@ -1,44 +1,81 @@
 package com.anil.spring.boot.api.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.validation.annotation.Validated;
 
 @Table
 @Entity
-public class Student {
+@Validated
+public class Student implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JsonIgnore
+	// @JsonIgnore
 	private int id;
-	@Column
-	@JsonIgnore
-	private String name;
-	@Column
-	@JsonIgnore
-	private String gendar;
-	@Column
-	@JsonIgnore
-	private int age;
-	// private List<String> subjects;
 
+	@Column
+	// @JsonIgnore
+	@NotNull(message = "Name cannot be null")
+	@Size(min = 1, max = 100, message = "Name must be between 1 and 100 characters")
+	private String name;
+
+	@Column
+	// @JsonIgnore@NotNull(message = "Name cannot be null")
+	@Size(min = 1, max = 10, message = "Name must be between 1 and 10 characters")
+	private String gendar;
+
+	@Column
+	// @JsonIgnore
+	@Min(value = 14, message = "Age must be at least 14")
+    @Max(value = 60, message = "Age must be at most 60")
+	private int age;
+
+	@Column
+	// @Column(name = "subjects")
+	// @Column(name = "subjects", columnDefinition = "CLOB")
+	@Convert(converter = StringArrayConverter.class)
+	@NotNull(message = "Name cannot be null")
+	@Size(min = 1, max = 100, message = "Name must be between 1 and 100 characters")
+	private String[] subjects;
+
+	/*
+	 * public String getSubjectsJson() throws JsonProcessingException { ObjectMapper
+	 * mapper = new ObjectMapper(); return mapper.writeValueAsString(subjects); }
+	 * 
+	 * public void setSubjectsJson(String subjectsJson) throws
+	 * JsonProcessingException { ObjectMapper mapper = new ObjectMapper();
+	 * this.subjects = mapper.readValue(subjectsJson, String[].class); }
+	 */
 	public Student() {
 		super();
 	}
 
-	public Student(int id, String name, String gendar, int age) {
+	public Student(int id, String name, String gendar, int age, String[] subjects) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.gendar = gendar;
 		this.age = age;
+		this.subjects = subjects;
 	}
 
 	public int getId() {
@@ -73,9 +110,18 @@ public class Student {
 		this.age = age;
 	}
 
+	public String[] getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(String[] subjects) {
+		this.subjects = subjects;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", gendar=" + gendar + ", age=" + age + "]";
+		return "Student [id=" + id + ", name=" + name + ", gendar=" + gendar + ", age=" + age + ", subjects="
+				+ subjects.toString() + "]";
 	}
 
 }

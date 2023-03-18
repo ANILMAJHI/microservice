@@ -1,0 +1,81 @@
+package com.anil.spring.boot.api.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Table
+@Entity
+public class Student {
+
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@JsonIgnore
+	private int id;
+	@Column
+	//@JsonIgnore
+	private String name;
+	@Column
+	//@JsonIgnore
+	private String gendar;
+	@Column
+	//@JsonIgnore
+	private int age;
+	// private List<String> subjects;
+
+	public Student() {
+		super();
+	}
+
+	public Student(int id, String name, String gendar, int age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gendar = gendar;
+		this.age = age;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGendar() {
+		return gendar;
+	}
+
+	public void setGendar(String gendar) {
+		this.gendar = gendar;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", gendar=" + gendar + ", age=" + age + "]";
+	}
+
+}
